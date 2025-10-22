@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <title>Volodymyr Stashchenko CV</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: black;
+            font-family: monospace;
+            scroll-behavior: smooth;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        h1, h2 {
+            text-shadow: 0 0 8px #33ff66;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+
+        ul.skills, ul.experience, ul.cloud {
+            list-style: none;
+            padding: 0;
+            margin: 0.9rem 0 2rem 0;
+        }
+
+        ul.skills li, ul.experience li, ul.cloud li {
+            margin: 0.4rem 0;
+        }
+
+        a {
+            color: #33ff66;
+            text-decoration: underline;
+        }
+
+        .container {
+
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            color: #dde5df;
+            background-color: rgba(0, 0, 0, 0.55);
+            border-radius: 8px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 200px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #dde5df;
+            padding: 2rem 1rem;
+            z-index: 2; /* above canvas */
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px #33ff66;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar a {
+            color: #33ff66;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            -webkit-tap-highlight-color: rgba(0,0,0,0); /* removes gray tap highlight */
+        }
+
+        .sidebar a:hover {
+            color: #88ff99;
+        }
+
+        /* Hamburger Button */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: #33ff66;
+            border: none;
+            padding: 0.5rem 0.8rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 4;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+                font-size: 14px;
+            }
+
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            p { line-height: 1.8; margin-bottom: 1.5rem; }
+            ul.skills li, ul.experience li, ul.cloud li { margin-bottom: 0.5rem; }
+
+            /* Sidebar mobile behavior */
+            .sidebar {
+                width: 70%;          /* easier to tap links */
+                padding: 2rem 1.5rem;
+                transform: translateX(-100%); /* hidden by default */
+            }
+
+            .sidebar.open {
+                transform: translateX(0);    /* visible when .open is added */
+            }
+
+            .sidebar ul li a {
+                font-size: 1.2rem; /* bigger touch area */
+            }
+
+            /* Show hamburger button */
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70%; /* easier to tap links */
+                padding: 2rem 1.5rem;
+            }
+
+            .sidebar ul li a {
+                font-size: 1.2rem; /* bigger touch area */
+            }
+        }
+
+        #bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            /*max-width: 900px;*/
+            width: 100%;
+            height: 100%;
+            background: url('photo.jpg') center center / cover no-repeat;
+            opacity: 0.5; /* makes it subtle */
+            z-index: 1;  /* behind everything */
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<div id="bg-overlay"></div>
+<button class="menu-toggle" id="menuToggle">☰</button>
+<!-- Left Side Menu -->
+<nav class="sidebar" id="sidebar">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#cloud">Cloud & Tools</a></li>
+    </ul>
+</nav>
+<div id="container" class="container">
+    <h1>Volodymyr Stashchenko</h1>
+    <h2>Principal Engineer · Software Architect</h2>
+    <p><a href="https://www.linkedin.com/in/stashchenko/" target="_blank">LinkedIn Profile</a></p>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I have over 15 years of development experience, encompassing project creation, process establishment, project
+            estimation, and team leadership. As a Principal Engineer, I've played key roles in architecture solutions
+            and
+            have experience in creating projects from the ground up. I also have experience splitting huge monoliths
+            into
+            independent, isolated projects. My responsibilities have included gathering requirements, development,
+            testing,
+            and leading teams, among others.</p>
+
+        <p>My specialties include Web Application development, proficiency in Ruby/Rails and GO, and expertise in agile
+            processes and methodologies such as SCRUM and Kanban. I have a strong proficiency in crafting well-designed
+            APIs
+            using REST, GraphQL, and gRPC. Additionally, I have experience in DevOps tasks, including configuring CI/CD
+            pipelines, utilizing Code Analysis tools, and writing bash scripts.</p>
+
+        <p>In terms of testing, I am experienced in TDD, RSpec, and Go tests. My experience also includes performance
+            testing skills and improving the performance of applications significantly. I am skilled in troubleshooting
+            concurrency issues, profiling applications for CPU/RAM usage, and choosing the optimal hardware for
+            cost-effectiveness. I have worked with various databases including RDMS (MySQL, PostgreSQL) and NoSQL
+            databases
+            (MongoDB, Google Datastore, Redis, Memcache, ElasticSearch).</p>
+
+        <p>I am experienced in working with Cloud platforms such as AWS, GCP (Google Cloud Platform), Heroku, Azure.</p>
+
+        <p>I am passionate about tackling challenges, particularly in high-load projects and solving interesting
+            problems. I
+            enjoy finding solutions to issues that arise, engaging with people, providing training and mentoring, and
+            sharing my knowledge to help teams grow.</p>
+    </section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills">
+            <li>Go (Golang)</li>
+            <li>Ruby / Rails</li>
+            <li>API Design (REST, GraphQL, gRPC)</li>
+            <li>CI/CD Pipelines</li>
+            <li>TDD / RSpec / Go tests</li>
+            <li>Performance Optimization</li>
+            <li>Concurrency Troubleshooting</li>
+            <li>MySQL / PostgreSQL / MongoDB / Redis / ElasticSearch</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Experience / Projects</h2>
+        <ul class="experience">
+            <li>Architected and developed microservices for high-load projects.</li>
+            <li>Split large monoliths into independent, isolated projects.</li>
+            <li>Led multiple engineering teams, mentoring and guiding junior developers.</li>
+            <li>Designed and implemented scalable APIs for web applications.</li>
+            <li>Improved application performance and optimized resource usage.</li>
+        </ul>
+    </section>
+
+    <section id="cloud">
+        <h2>Cloud & Tools</h2>
+        <ul class="cloud">
+            <li>AWS / GCP / Azure / Heroku</li>
+            <li>Docker, Kubernetes</li>
+            <li>CI/CD (GitHub Actions, GitLab CI, Jenkins)</li>
+            <li>Monitoring & Logging (Prometheus, Grafana)</li>
+        </ul>
+    </section>
+</div>
+
+<script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const fontSize = 25;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(0);
+
+    function draw() {
+        // fade the canvas slightly to create the trailing effect
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Dim green letters
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.4)';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = letters.charAt(Math.floor(Math.random() * letters.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            // move drop down
+            drops[i] += 0.4;
+
+            // reset randomly to create waterfall effect
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.995) {
+                drops[i] = 0;
+            }
+        }
+
+        requestAnimationFrame(draw);
+    }
+
+    draw();
+
+
+
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    const container = document.getElementById('container');
+    // Close when clicking on overlay
+    container.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            sidebar.classList.remove('open');
+        }
+    });
+
+    menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+
+    sidebar.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
