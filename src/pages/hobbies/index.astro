@@ -7,7 +7,11 @@ const hobbies = await getCollection('hobbies');
 
 <MainLayout title="Hobbies">
     <h1>Hobbies</h1>
-
+    <p class="intro">
+        A collection of small projects, experiments, and ideas I build in my free time.
+        Most of them are connected with ESP32, Home Assistant, automation systems, and Amazfit watchfaces.
+        Click any tile to explore details.
+    </p>
     <div class="grid">
         {hobbies.map((hobby) => (
                 <a class="tile" href={`/hobbies/${hobby.id.replace('.md', '')}`}>
