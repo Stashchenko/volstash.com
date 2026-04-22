@@ -1,12 +1,12 @@
 ---
-title: "Amazfit Watchface Future Plans"
-github: "https://github.com/Stashchenko/future_plans"
+title: "Amazfit Watchface in Matrix style"
+github: "https://github.com/Stashchenko/matrix_simple"
 ---
 
 ### Watchface for amazfit
 
 
-![preview.png](https://raw.githubusercontent.com/Stashchenko/future_plans/master/preview.png)
+![preview.png](https://raw.githubusercontent.com/Stashchenko/matrix_simple/master/assets/square/icon.png)
 
 
 Quick-start: https://docs.zepp.com/docs/guides/quick-start/
@@ -21,7 +21,7 @@ Generate QR to install in Dev mode:
 `zeus preview`
 
 ##### Amazfit-active
-![qr.png](https://raw.githubusercontent.com/Stashchenko/future_plans/master/qr.png)
+![qr.png](https://raw.githubusercontent.com/Stashchenko/matrix_simple/master/qr.png)
 
 
 View logs:
@@ -33,4 +33,8 @@ https://docs.zepp.com/docs/watchface/watchface-quick-start/
 
 Device List:
 https://docs.zepp.com/docs/reference/related-resources/device-list/
+
+
+Widgets:
+https://docs.zepp.com/docs/watchface/api/hmUI/widget/IMG/
 

@@ -2,11 +2,12 @@ import fs from 'fs/promises';
 import fetch from 'node-fetch';
 
 const repos = [
-    { name: 'future_plans', title: 'Future Plans' },
-    { name: 'ir-blaster', title: 'IR Blaster' },
-    { name: 'esp32-smart-display', title: 'Smart Display' },
-    { name: 'esp32_media_player', title: 'HA Media Player' },
-    { name: 'proxmoxbot', title: 'Telegram Proxmox Bot' }
+    {name: 'future_plans', title: 'Amazfit Watchface Future Plans'},
+    {name: 'ir-blaster', title: 'IR Blaster'},
+    {name: 'esp32-smart-display', title: 'Smart Display'},
+    {name: 'esp32_media_player', title: 'HA Media Player'},
+    {name: 'proxmoxbot', title: 'Telegram Proxmox Bot'},
+    {name: 'matrix_simple', title: 'Amazfit Watchface in Matrix style'}
 ];
 
 const branch = 'master';
