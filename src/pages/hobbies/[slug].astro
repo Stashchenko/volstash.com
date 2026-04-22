@@ -1,0 +1,25 @@
+---
+import {getCollection} from 'astro:content';
+import {render} from 'astro:content';
+import MainLayout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const hobbies = await getCollection('hobbies');
+
+    return hobbies.map((hobby) => ({
+        params: {
+            slug: hobby.id.replace('.md', ''),
+        },
+        props: {hobby},
+    }));
+}
+
+const {hobby} = Astro.props;
+const {Content} = await render(hobby);
+---
+
+<MainLayout title={hobby.data.title}>
+    <article>
+        <Content/>
+    </article>
+</MainLayout>

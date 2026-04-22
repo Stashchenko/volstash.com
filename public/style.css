@@ -7,6 +7,12 @@ html, body {
     scroll-behavior: smooth;
 }
 
+article img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
 canvas {
     position: fixed;
     top: 0;
