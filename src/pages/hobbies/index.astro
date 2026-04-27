@@ -5,6 +5,8 @@ import MainLayout from "../../layouts/Layout.astro";
 const hobbies = await getCollection('hobbies');
 ---
 
+<link rel="stylesheet" href="/plates.css"/>
+
 <MainLayout title="Hobbies">
     <h1>Hobbies</h1>
     <p class="intro">
@@ -24,61 +26,4 @@ const hobbies = await getCollection('hobbies');
                 </a>
         ))}
     </div>
-
-    <style>
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .tile {
-            text-decoration: none;
-            color: inherit;
-            background: rgba(0, 255, 100, 0.05);
-            border: 1px solid rgba(0, 255, 100, 0.2);
-            border-radius: 10px;
-            padding: 16px;
-            transition: 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tile:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 255, 100, 0.6);
-            box-shadow: 0 0 15px rgba(0, 255, 100, 0.15);
-        }
-
-        .tile-inner h3 {
-            margin: 0;
-            font-size: 16px;
-            color: #00ff99;
-        }
-
-        .tile-inner p {
-            margin-top: 8px;
-            font-size: 12px;
-            opacity: 0.7;
-        }
-
-        /* subtle matrix glow effect */
-        .tile::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                    circle at 20% 20%,
-                    rgba(0, 255, 100, 0.1),
-                    transparent 60%
-            );
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .tile:hover::before {
-            opacity: 1;
-        }
-    </style>
 </MainLayout>

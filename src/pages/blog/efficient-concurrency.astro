@@ -1,0 +1,443 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Efficient Concurrency: a Quick-Thinking Cashier">
+    <div data-scaffold-immersive-reader="">
+        <article>
+            <header aria-label="Article header">
+                <figure>
+                    <div>
+                        <img src="https://media.licdn.com/dms/image/v2/D4D12AQEjTdnWz-71cg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1715763457673?e=1778716800&amp;v=beta&amp;t=C1fgq-8OJzoW1115_k96n00DIY7iwXtypZyZJLeJsx8"
+                             loading="lazy">
+                    </div>
+                </figure>
+
+                <h1 dir="ltr">
+                      <span data-scaffold-immersive-reader-title="">
+                        Efficient Concurrency: a Quick-Thinking Cashier
+                      </span>
+                </h1>
+            </header>
+
+            <div>
+                <div>
+                    <div>
+                        <time>
+                            May 16, 2024
+                        </time>
+                    </div>
+                </div>
+                <div data-scaffold-immersive-reader-content="">
+                    <div>
+                        <div dir="ltr">
+
+
+                            <div>
+                                <p>
+                                    It was a busy day at a small shop, and the line at the checkout counter was
+                                    getting longer. The cashier efficiently processed customers one after another. As
+                                    the next customer approached the counter, they placed their items on it, and the
+                                    cashier scanned them, announcing the total amount due.
+                                </p>
+
+
+                                <p>
+                                    The customer reached for their wallet and handed the cashier a credit card
+                                    for payment. The cashier had to wait for confirmation from the bank (<a
+                                        target="_self" tabindex="0"
+                                        href="https://www.thingsmobile.com/q-a/what-is-the-speed-of-2g-3g-4g-and-5g-networks-"
+                                        data-test-app-aware-link="">2G speed</a>) to complete the
+                                    credit card transaction, yet the queue of customers continued to grow.
+                                </p>
+
+
+                                <div>
+                                    <figure>
+
+                                        <div>
+
+                                            <div>
+
+                                                <img
+                                                        src="https://media.licdn.com/dms/image/v2/D4D12AQHwnpujflbQ2A/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715694940851?e=1778716800&amp;v=beta&amp;t=XlbRG4iKG4NHW-qGtq1dlFVi6AGpUWBGarbkkZvP0iA"
+                                                        loading="lazy" alt="Article content">
+                                            </div>
+
+                                        </div>
+
+
+                                    </figure>
+                                </div>
+
+
+                                <p>
+                                    A quick-thinking cashier decided to process other customers while waiting for
+                                    the bank's confirmation. The cashier could efficiently manage the customer's queue
+                                    by handling payments with cash and return to the first customer to check for the
+                                    bank confirmation once it was available.
+                                </p>
+
+
+                                <p>
+                                    To stay organized, the cashier uses a method similar to maintaining a task
+                                    list in a notebook. Such as creating a queue to check and process again postponed
+                                    customer’s tasks. By managing this list, the cashier can efficiently revisit and
+                                    process these marked tasks once the bank confirmations become available. This system
+                                    allows the cashier to handle multiple customers sequentially without losing
+                                    track.<span> </span>
+                                </p>
+
+
+                                <h2>
+                                    Exploring Software Concurrency<span> </span>
+                                </h2>
+
+
+                                <p>
+                                    This small story can easily explain the simplified analogy of the "Green
+                                    threads" mechanism in many languages.
+                                </p>
+
+
+                                <p>
+                                    At this point, the cashier's role became analogous to a<span> </span><strong>
+                                    thread</strong><span> </span>in a software process:
+                                </p>
+
+
+                                <p>
+                                <ul>
+                                    <li>Payment by card represents<span> </span><strong>
+                                        I/O-bound</strong><span> </span>tasks.
+                                    </li>
+                                    <li>Payment by cash represents<span> </span><strong>
+                                        CPU-bound tasks</strong>, since it involves counting the
+                                        amount and giving change.
+                                    </li>
+                                    <li>Our notebook of additional tasks represents<span> </span><strong>
+                                        "Green threads"<span> </span></strong>in<strong><span> </span>
+                                    </strong>modern
+                                        software languages.
+                                    </li>
+                                </ul>
+
+
+                                <p>
+                                    When an I/O-bound operation is encountered (like waiting for network data or
+                                    disk I/O), the "Green Thread" can yield control back to the event loop, allowing it
+                                    to handle other tasks while waiting for the I/O operation to complete.
+                                </p>
+
+
+                                <p>
+                                    This is related to the concurrency models used in many languages
+                                    like<span> </span><strong>Node.js</strong><span> </span>with Promises,<span> </span><strong>
+                                    Ruby</strong><span> </span>with Fibers,<span> </span><strong>
+                                    Golang</strong><span> </span>with Goroutines,<span> </span><strong>
+                                    Java</strong><span> </span>- Virtual Threads (Project Loom), etc.
+                                </p>
+
+
+                                <p>
+                                    The key difference in handling concurrency between languages lies in their
+                                    default behavior and the level of control given to developers. There are basically
+                                    two main models:<span> </span><strong>Preemptive
+                                </strong><span> </span>and<span> </span><strong>Cooperative
+                                </strong><span> </span>scheduling models, and there is also a mix, like
+                                    the "hybrid scheduling model" or "semi-preemptive scheduling".<span> </span>
+                                </p>
+
+
+                                <p>
+                                    <strong>Cooperative model:</strong><span> </span>threads voluntarily
+                                    yield control to the
+                                    scheduler when they encounter a blocking operation or complete their current
+                                    work.<span> </span>
+                                </p>
+
+
+                                <p>
+                                    <strong>Preemptive model:</strong><span> </span>the scheduler
+                                    (typically the operating system)
+                                    handles blocking and switching between threads automatically, without the thread's
+                                    involvement. The scheduler can interrupt and preempt a running thread at any time,
+                                    allowing other threads to execute.<span> </span>
+                                </p>
+
+
+                                <p>
+                                    <strong>Node.js</strong><span> </span>automatically
+                                    handles concurrency for I/O operations using its non-blocking I/O model and event
+                                    loop, without requiring explicit concurrency constructs from developers. It does not
+                                    have built-in support for "green threads" or preemptive models. [<a
+                                        target="_self" tabindex="0"
+                                        href="https://www.geeksforgeeks.org/explain-the-concept-of-non-blocking-i-o-in-node/"
+                                        data-test-app-aware-link="">1</a>]<span> </span>
+                                </p>
+
+
+                                <p>
+                                    In<span> </span><strong>Go</strong>
+                                    , developers have explicit control over concurrency and must use goroutines
+                                    and channels to achieve concurrent execution. Yet Go's scheduler drives the
+                                    mechanism of switching between goroutines automatically, providing a cooperative
+                                    scheduling model that feels like preemptive scheduling. [<a target="_self"
+                                                                                                tabindex="0"
+                                                                                                href="https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html"
+                                                                                                data-test-app-aware-link="">
+                                    2</a>]<span> </span>
+                                </p>
+
+
+                                <p>
+                                    In the similar way<span> </span><strong>Java’s
+                                </strong><span> </span>(Project Loom) Virtual threads
+                                    automatically yield control when they encounter a blocking operation, such as I/O or
+                                    synchronization primitives.&nbsp; [<a target="_self" tabindex="0"
+                                                                          href="https://blogs.oracle.com/javamagazine/post/java-virtual-threads"
+                                                                          data-test-app-aware-link="">3
+                                </a>]
+                                </p>
+
+
+                                <p>
+                                    Fibers in<span> </span><strong>Ruby
+                                </strong><span> </span>are cooperatively scheduled,
+                                    meaning that developers must manually yield control from one fiber to another using
+                                    the<span> </span><strong><em>Fiber.yield</em></strong><span> </span>method.&nbsp;
+                                    [<a target="_self" tabindex="0"
+                                        href="https://ruby-doc.org/core-3.1.2/Fiber.html"
+                                        data-test-app-aware-link="">
+                                    4</a>] Or use FiberScheduler to be similar as Go with auto
+                                    switching when reaches some blocking operation[<a target="_self" tabindex="0"
+                                                                                      href="https://docs.ruby-lang.org/en/3.2/Fiber/Scheduler.html"
+                                                                                      data-test-app-aware-link="">
+                                    5</a>]<span> </span>
+                                </p>
+
+
+                                <div>
+                                    <figure>
+
+                                        <div>
+
+                                            <div>
+
+                                                <img
+                                                        src="https://media.licdn.com/dms/image/v2/D4D12AQHQ2bzJRUiT9Q/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715694943730?e=1778716800&amp;v=beta&amp;t=EdqCECkPFMDsqAnNBwoXTm3Y4jnVh556xd8e-POIC38"
+                                                        loading="lazy" alt="Article content">
+                                            </div>
+
+                                        </div>
+
+
+                                    </figure>
+                                </div>
+
+
+                                <p>
+                                    When we have a single Thread and "Green Threads" (or any lightweight
+                                    concurrency construct like fibers, goroutines, etc.) that are running on it, the
+                                    underlying approach follows the general concept of the <a
+                                        target="_self" tabindex="0"
+                                        href="https://en.wikipedia.org/wiki/Reactor_pattern"
+                                        data-test-app-aware-link="">Reactor
+                                    pattern</a> or a variant of the <a
+                                        target="_self" tabindex="0"
+                                        href="https://en.wikipedia.org/wiki/Proactor_pattern"
+                                        data-test-app-aware-link=""> Proactor
+                                    pattern</a>. In the case of lightweight concurrency constructs, the
+                                    underlying implementation often involves a single operating system thread that
+                                    multiplexes the execution of these lightweight threads or tasks. This multiplexing
+                                    is typically achieved through an event loop or a similar mechanism. In some
+                                    languages, developers have more or less control when to switch.
+                                </p>
+
+
+                                <p>
+                                    However, it's worth noting that many languages like Java, Go and Ruby 3+
+                                    implement interesting solutions to achieve true parallel execution (out of the box).
+                                    While different languages may have varying approaches and techniques for handling
+                                    parallel execution, this story focuses on the basic principles of efficiently
+                                    handling tasks concurrently on a single execution unit (the cashier).<span> </span>
+                                </p>
+
+
+                                <h2>
+                                    Lightweight Concurrency
+                                </h2>
+
+
+                                <p>
+                                    The key idea behind all these lightweight concurrency mechanisms is to avoid
+                                    blocking the main execution flow (the cashier). Instead, they allow switching to
+                                    other tasks or execution contexts (other customers) while waiting for the I/O
+                                    operation to complete.<span> </span>
+                                </p>
+
+
+                                <p>
+                                    This is similar to using lightweight concurrency mechanisms like green
+                                    threads instead of creating additional OS-level threads (comparable to hiring more
+                                    cashiers). Several factors motivate the choice:
+                                </p>
+
+
+                                <p>
+                                    <strong>Resource Efficiency:<span> </span></strong>
+                                    Creating and managing OS-level threads can be resource-intensive, as each
+                                    thread requires its own stack, memory, and kernel resources. In contrast,
+                                    lightweight concurrency mechanisms like "green threads" are more lightweight and can
+                                    be created and managed more efficiently, especially when dealing with a large number
+                                    of concurrent tasks or connections.<span> </span>
+                                </p>
+
+
+                                <p>
+                                    <strong>Context switching:</strong><span> </span>Switching between
+                                    OS-level threads involves
+                                    costly context switching by the operating system kernel, which can introduce
+                                    significant overhead, especially when dealing with a large number of
+                                    threads.<span> </span>
+                                </p>
+
+
+                                <p>
+                                    <strong>Simplicity</strong>: Lightweight concurrency constructs
+                                    can provide a simpler programming model compared to traditional thread-based
+                                    concurrency, especially for handling I/O-bound tasks or implementing event-driven
+                                    architectures.<span> </span>
+                                </p>
+
+
+                                <p>
+                                    Many modern applications are heavily I/O-bound, meaning they spend a
+                                    significant amount of time waiting for network, disk, etc., lightweight concurrency
+                                    mechanisms are often implemented at the language or runtime level, making them more
+                                    portable across different OS and hardware architectures, as opposed to relying on
+                                    low-level threading primitives provided by the operating system.<span> </span>
+                                </p>
+
+
+                                <h2>
+                                    Concurrency != Parallelism<span> </span>
+                                </h2>
+
+
+                                <div>
+                                    <figure>
+
+                                        <div>
+
+                                            <div>
+
+                                                <img
+                                                        src="https://media.licdn.com/dms/image/v2/D4D12AQHro5o89Tuf1w/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715785574170?e=1778716800&amp;v=beta&amp;t=7lLFTCgaZs3_tY1j8Y1LeHKHPP-HYp0ahlHib58KZQ4"
+                                                        loading="lazy" alt="Article content">
+                                            </div>
+
+                                        </div>
+
+
+                                    </figure>
+                                </div>
+
+
+                                <p>
+                                    In an analogous manner, one might consider hiring more cashiers to avoid
+                                    customer wait times. However, this approach might not always be viable or efficient.
+                                    Hiring one more cashier when all customers pay by card won't significantly improve
+                                    the total wait time. All of them will still wait for bank confirmation. That's the
+                                    reason why executing I/O-bound tasks in parallel (adding more cashiers) doesn't give
+                                    a huge performance boost since the bottleneck lies in waiting for the I/O operation
+                                    to complete, not in the computational power.
+                                </p>
+
+
+                                <p>
+                                    However, when all customers pay by cash, having more cashiers who can work in
+                                    parallel may help a lot. They can more quickly decrease the waiting queue since
+                                    handling cash payments (a CPU-bound task) doesn't involve waiting for external
+                                    resources.
+                                </p>
+
+
+                                <p>
+                                    The ideal scenario is to have a mix of both cards and cash tasks. In this
+                                    case, having at least two cashiers can effectively utilize parallelism for cash
+                                    tasks. While one cashier is busy with a cash payment, another cashier can
+                                    simultaneously handle another cash payment task. This parallel execution of cash
+                                    tasks (CPU-bound) improves overall throughput. Additionally, each cashier can
+                                    leverage concurrency by switching between card and cash tasks within their own
+                                    execution flow, further improving resource utilization.
+                                </p>
+
+
+                                <h2>
+                                    Conclusions
+                                </h2>
+
+
+                                <p>
+                                    It's important to find the right balance when adding more cashiers (threads).
+                                    While having more cashiers can improve parallelism for CPU-bound tasks, it can also
+                                    introduce overhead due to context switching and resource management by the operating
+                                    system. It's worth noting that the degree of parallelizability varies among
+                                    CPU-bound tasks, including certain algorithms, such as some sorting
+                                    algorithms, <a
+                                        target="_self" tabindex="0"
+                                        href="https://en.wikipedia.org/wiki/Merge_sort#Parallel_merge_sort"
+                                        data-test-app-aware-link="">merge sort
+                                </a> and <a
+                                        target="_self" tabindex="0"
+                                        href="https://en.wikipedia.org/wiki/Quicksort#Parallelization"
+                                        data-test-app-aware-link="">parallel
+                                    quicksort</a>, can be parallelized effectively, while others may not
+                                    benefit as much from parallelization due to their inherent sequential nature or
+                                    complexity.
+                                </p>
+
+
+                                <p>
+                                    The developer's role is to understand the nature of the tasks (I/O-bound or
+                                    CPU-bound) and their parallelizability, and choose a middle ground that avoids
+                                    having too few resources, which can lead to underutilization, or too many resources,
+                                    which can introduce unnecessary overhead.<span> </span>
+                                </p>
+
+
+                                <p>
+                                    Ultimately, developers should strive to learn the underlying principles and
+                                    patterns that govern the efficient management of concurrency and task handling. Just
+                                    like the quick-thinking cashier. This holistic understanding will empower them to
+                                    make informed decisions and implement efficient solutions, akin to a skilled cashier
+                                    who can deftly juggle multiple tasks, ensuring a smooth and efficient flow at the
+                                    checkout counter.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </article>
+
+    </div>
+    <style>
+        figure {
+            text-align: center;
+        }
+
+        figcaption {
+            text-align: center;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</Layout>

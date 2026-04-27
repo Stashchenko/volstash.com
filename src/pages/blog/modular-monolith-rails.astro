@@ -1,0 +1,598 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Modular Monolith in Ruby on Rails">
+    <div>
+        <div>
+            <div>
+                <article>
+                    <header aria-label="Article header">
+                        <figure>
+                            <div>
+                                <img src="https://media.licdn.com/dms/image/v2/D4D12AQGA1fUR_aZwAQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1715159277207?e=1778716800&amp;v=beta&amp;t=xh-wUkZtct6UHOpfR9oumzVbj5Yw52gN9H25L2tyL5I"
+                                     loading="lazy">
+                            </div>
+                        </figure>
+                        <h1 dir="ltr">
+                              <span data-scaffold-immersive-reader-title="">
+                                Unpacking the Benefits of a Modular Monolithic Ruby on Rails
+                              </span>
+                        </h1>
+                    </header>
+
+
+                    <div>
+                        <time>
+                            May 8, 2024
+                        </time>
+                    </div>
+
+
+                    <div data-scaffold-immersive-reader-content="">
+
+
+                        <div>
+                            <div dir="ltr">
+
+
+                                <div>
+
+
+                                    <p>
+                                        Software development, a highly complex and intricate process,
+                                        requires strategic planning and execution for any project to be
+                                        successful. This involves clearly defining functional requirements (what
+                                        the software should do) and the non-functional requirements (how the
+                                        software should work). Both of these aspects should be given significant
+                                        importance to ensure that the end product is of high quality and meets
+                                        the needs of the stakeholders.
+                                    </p>
+
+
+                                    <p>
+                                        <strong>Functional requirements</strong><span> </span>are straightforward - they
+                                        tell you
+                                        what the application should do. On the other hand,<span> </span><strong>non-functional
+                                        requirements</strong>, also known as quality attributes,
+                                        can be a bit tricky to identify and implement. These cover performance,
+                                        usability, reliability, and other elements that define the user's
+                                        experience with the software.
+                                    </p>
+
+
+                                    <p>
+                                        However, simply identifying these requirements is not enough. It
+                                        is essential to incorporate best practices from reliable sources like
+                                        the Software Engineering Institute (SEI). SEI provides guidelines and
+                                        frameworks that have been proven to be effective and successful in
+                                        software development projects. They bring in the much-needed
+                                        standardization in an otherwise volatile software development process.
+
+                                    </p>
+
+
+                                    <h3>
+                                        What is software architecture?
+                                    </h3>
+
+
+                                    <p>
+                                        Software architecture serves as the blueprint of a system and
+                                        provides an abstraction to manage the system’s complexity and establish
+                                        communication and coordination among components.<span> </span>
+                                    </p>
+
+
+                                    <p>
+                                        <em>SEI emphasizes that a well-defined software architecture
+                                            supports multiple perspectives and caters to all stakeholders. This
+                                            implies that the design must address both technical and
+                                            non-technical requirements, making the system scalably efficient and
+                                            broadly understandable. [</em><a target="_self"
+                                                                             tabindex="0"
+                                                                             href="https://insights.sei.cmu.edu/documents/2544/2010_010_001_513810.pdf"
+                                                                             data-test-app-aware-link=""><em>1</em></a><em>]
+                                    </em>
+                                    </p>
+
+
+                                    <p>
+                                        For instance, a system with high data load might require
+                                        different architectural choices like employing caching or load balancing
+                                        to ensure performance requirements. Similarly, software dealing with
+                                        sensitive information would need a high degree of emphasis on security
+                                        protocols and establishing robust defenses against potential threats.
+
+                                    </p>
+
+
+                                    <p>
+                                        On the non-technical side, the considerations deal more with
+                                        things like project budgets, timelines, team skill-levels, or external
+                                        constraints like regulations and stakeholder expectations. Using
+                                        cutting-edge technologies for an architectural design might not be the
+                                        best decision if the team lacks expertise in it, or if it pushes the
+                                        project timeline beyond feasible limits.
+                                    </p>
+
+
+                                    <p>
+                                        <strong>Now comes the crucial part - the solution or the software
+                                            architecture that will best meet the above-mentioned requirements.
+                                        </strong>
+                                    </p>
+
+
+                                    <p>
+                                        Identifying the best software architecture depends largely on
+                                        understanding project requirements, performance needs, scalability
+                                        potential, security requirements, etc. The architecture should also
+                                        integrate well with existing systems, fit within budget constraints, and
+                                        be maintainable and flexible.
+                                    </p>
+
+
+                                    <p>
+                                        <strong><span> </span></strong>
+                                    </p>
+
+
+                                    <h3>
+                                        Modular Monolith Architecture
+                                    </h3>
+
+
+                                    <blockquote>
+                                        <em>You shouldn't start a new project with microservices, even if
+                                            you're sure your application will be big enough to make it
+                                            worthwhile. —</em><em><span> </span>
+                                        <a
+                                                target="_self" tabindex="0"
+                                                href="https://martinfowler.com/bliki/MonolithFirst.html"
+                                                data-test-app-aware-link="">Martin Fowler
+                                        </a></em>
+                                    </blockquote>
+
+
+                                    <p>
+                                        This approach is called the “<strong>monolith-first
+                                    </strong>” strategy and it's indeed advocated by software
+                                        development experts like Martin Fowler. The crux of this strategy is
+                                        that even when you anticipate that your application will eventually need
+                                        a microservices architecture, it still makes sense to start designing
+                                        and developing it in a monolithic style.
+                                    </p>
+
+
+                                    <p>
+                                        However,<span> </span><strong>
+                                        monolith</strong><span> </span>might be
+                                        too common and<span> </span><strong>
+                                        microservices</strong><span> </span>can
+                                        be too granular. Is there any middle ground?
+                                    </p>
+
+
+                                    <p>
+                                        <span> </span>- Yes, there certainly is a middle
+                                        ground between a monolithic and microservices architectures, often
+                                        referred to as a<span> </span><strong>
+                                        "modular"</strong><span> </span>architecture.<span> </span>
+                                    </p>
+
+
+                                    <p>
+
+                                        <br>
+                                    </p>
+
+
+                                    <div>
+                                        <figure>
+
+                                            <div>
+
+                                                <div>
+
+                                                    <img
+                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQGr_4X1l_TLMg/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1715162578140?e=1778716800&amp;v=beta&amp;t=di9iovh3nkX14_Pj8P392IJJUDS6TnETI36dJhWl6UI"
+                                                            loading="lazy" alt="Article content">
+                                                </div>
+
+                                            </div>
+
+
+                                        </figure>
+                                    </div>
+
+
+                                    <p>
+                                        The modular monolithic architecture is not a new concept. Many
+                                        people have already described and implemented it extensively.<span> </span><a
+                                            target="_self"
+                                            tabindex="0"
+                                            href="https://medium.com/design-microservices-architecture-with-patterns/microservices-killer-modular-monolithic-architecture-ac83814f6862"
+                                            data-test-app-aware-link="">[2]</a>. Kelsey
+                                        Hightower, a renowned cloud computing expert, has advocated for the use
+                                        of serverless monoliths, stating that they<span> </span><strong>“offer a ton of
+                                        value”</strong>. According to Hightower, serverless
+                                        monoliths allow developers to avoid the complexity and performance
+                                        overhead of microservices for applications that don't require such
+                                        granularity, while still benefiting from a fully managed platform and
+                                        various autoscaling models to fit their needs.
+                                    </p>
+
+
+                                    <div>
+                                        <figure>
+
+                                            <div>
+
+                                                <div>
+
+                                                    <img
+                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQElc3EasO1qMQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1715159637283?e=1778716800&amp;v=beta&amp;t=a0K2W2Re92_PSwAc4KNejUNID0n3R5W1tt9Uj6mHNh4"
+                                                            loading="lazy" alt="Article content">
+                                                </div>
+
+                                            </div>
+
+
+                                            <figcaption>
+                                                https://twitter.com/kelseyhightower/status/1621184564956893189
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+
+
+                                    <p>
+                                        Based on the prerequisites, a modular monolithic app emerges as
+                                        the most optimal solution at the beginning with potential growth. In
+                                        this architecture style, the application is designed as a single unit,
+                                        but with the functionalities divided into separate modules.
+                                    </p>
+
+
+                                    <p>
+                                        A modular monolithic application approach can indeed be an
+                                        optimal solution, especially for startups or new projects. As the name
+                                        suggests, the application is originally built as a monolith (single
+                                        unit), but it is architecturally designed in a way that the codebase is
+                                        logically organized into different modules or components, each providing
+                                        a specific functionality.
+                                    </p>
+
+
+                                    <p>
+                                        This modular structure within the monolithic architecture
+                                        benefits the application in multiple ways, including better organization
+                                        of the code, ease of understanding, and simplified maintenance as each
+                                        module can be developed, tested, and updated independently.
+                                    </p>
+
+
+                                    <p>
+                                        As the application evolves and grows in complexity, these modules
+                                        can have the potential to be separated into standalone services or
+                                        microservices if necessary, without significant overhead. An architect
+                                        anticipating such growth can design the modules keeping this future
+                                        extraction in mind. Therefore, this approach creates an ideal balance
+                                        between maintaining the simplicity of a monolithic architecture and the
+                                        flexibility to evolve into a microservices architecture as and when the
+                                        application's prerequisites dictate.
+                                    </p>
+
+
+                                    <p>
+                                        This architectural style offers numerous advantages:
+                                    </p>
+
+
+                                    <p>
+                                    <ul>
+                                        <li><strong>Firstly</strong>, it provides superior
+                                            performance compared to other styles. Since all the components are
+                                            part of a single application, there are no network overheads,
+                                            ensuring faster inter-component communication and better
+                                            performance.
+                                        </li>
+                                    </ul>
+
+
+                                    <p>
+                                    <ul>
+                                        <li><strong>Secondly</strong>, the modular
+                                            monolithic architecture simplifies interoperability. The development
+                                            team can work seamlessly on different modules without having to
+                                            worry about complex integrations or dependencies. This approach also
+                                            enhances efficiency within the team, as responsibilities can be
+                                            divided based on modules.
+                                        </li>
+                                    </ul>
+
+
+                                    <p>
+                                    <ul>
+                                        <li><strong>Thirdly</strong>, it allows for faster
+                                            Minimum Viable Product (MVP) development and delivers a quicker
+                                            feedback mechanism from stakeholders, critical for the iterative
+                                            software development approach. The team can focus on one module at a
+                                            time, gradually building the complete application while continuously
+                                            incorporating feedback and improving the product.
+                                        </li>
+                                        <li><strong>Finally</strong>, the modular
+                                            monolithic architecture is easier to maintain and support. Since all
+                                            modules are part of a single unit, debugging and troubleshooting
+                                            become less complex. There is no need for elaborate testing
+                                            frameworks as required in other architectures.
+                                        </li>
+                                    </ul>
+
+
+                                    <p>
+                                        <span> </span>
+                                    </p>
+
+
+                                    <p>
+                                        <strong>Ruby On Rails Modular Monolith</strong>
+                                    </p>
+
+
+                                    <p>
+
+                                        <br>
+                                    </p>
+
+
+                                    <p>
+                                        Ruby on Rails (RoR) is a robust web development framework favored
+                                        by many developers for its ease of use, almost intuitive syntax, and
+                                        speed of development. One of the many strengths of RoR lies in its
+                                        architecture, where a monolithic application can be designed in a
+                                        modular fashion using <span> </span><a target="_self"
+                                                                               tabindex="0"
+                                                                               href="https://guides.rubyonrails.org/engines.html"
+                                                                               data-test-app-aware-link=""><strong>RoR
+                                        Engines
+                                    </strong></a>.<span> </span>
+                                    </p>
+
+
+                                    <p>
+                                        While RoR engines are a powerful approach, they are not the only
+                                        option for modularizing Rails applications. One such approach is the use
+                                        of <span> </span><a target="_self"
+                                                            tabindex="0" href="https://github.com/Shopify/packwerk"
+                                                            data-test-app-aware-link="">Packwerk</a>, a
+                                        Ruby gem developed by <span> </span><a tabindex="0"
+                                                                               href="https://www.linkedin.com/company/shopify/"
+                                                                               data-test-app-aware-link="">Shopify</a><span> </span>
+                                        to
+                                        enforce boundaries and modularize
+                                        Rails applications.
+                                    </p>
+
+
+                                    <p>
+                                        However, for our project, we decided not to explore Packwerk for
+                                        a couple of reasons. First, we knew from the outset that our modules
+                                        would grow significantly in complexity and size over time. Secondly, the
+                                        potential for future extraction of these modules into standalone
+                                        services or microservices was a key consideration in our architectural
+                                        design. The third reason, which we addressed the learning curve
+                                        associated with introducing a new gem like Packwerk, as adopting a new
+                                        tool or library can require time and effort for the development team to
+                                        learn and become proficient with it.
+                                    </p>
+
+
+                                    <p>
+                                        While Packwerk is a valuable tool for enforcing boundaries and
+                                        modularizing Rails applications, our specific project requirements and
+                                        growth projections made the use of RoR engines a more suitable choice.
+                                        However, it's important to evaluate the trade-offs and choose the
+                                        approach that best aligns with the project's goals, team dynamics, and
+                                        future scalability needs.
+                                    </p>
+
+
+                                    <p>
+                                        RoR engines, which can be equated to modules in the context of
+                                        this discussion, provide a clean and efficient way of compartmentalizing
+                                        the different aspects of an application. Each engine typically
+                                        corresponds to a feature or functionality of the application.
+                                    </p>
+
+
+                                    <p>
+                                        The fact that these engines can be easily extracted later to
+                                        create separate services is a considerable advantage vs huge monolithic
+                                        RoR App. As the application grows, some modules may need to be scaled
+                                        independently of others; some may grow too complex and justify the
+                                        overhead of being a separate service.
+                                    </p>
+
+
+                                    <p>
+                                        This ease of extraction also paves the way for a possible
+                                        transition to a microservices architecture in the future. If a specific
+                                        business requirement warrants such a transition, each module,
+                                        encapsulated within an engine, can be seamlessly extracted and deployed
+                                        as a separate service. Another advantage of engines is their potential
+                                        to be reused across different projects, thereby fostering rapid
+                                        development, reuse and consistency.
+                                    </p>
+
+
+                                    <p>
+                                        However, it is crucial to design these engines with future
+                                        extraction in mind. Developers should adhere to the principles
+                                        of<span> </span><strong>loose coupling and
+                                        high cohesion</strong><a target="_self"
+                                                                 tabindex="0"
+                                                                 href="https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/"
+                                                                 data-test-app-aware-link=""><strong>[3]
+                                    </strong></a><span> </span>to ensure that
+                                        these engines are both autonomous and interoperable. While the design of
+                                        Ruby gems/RoR engines tends to be loosely coupled, the potential for
+                                        adaptability is open-ended, as we often say in the Ruby
+                                        world:<span> </span><strong>"Everything is
+                                        possible".</strong>
+                                    </p>
+
+
+                                    <p>
+                                        There are many pitfalls to consider while building a Rails engine
+                                        app.<span> </span><em>(Maybe for another
+                                        article</em>). However, based on my experience, it’s
+                                        entirely possible to leverage the inherent benefits of Rails modular
+                                        APP.<span> </span>
+                                    </p>
+
+
+                                    <p>
+                                        To illustrate the benefits of using RoR engines, let me share an
+                                        example from one of our projects. We developed a Rails application that
+                                        comprised of three independent modules, each functioning as RoR engines.
+                                        We kept them as Rails Engines inside the<span> </span><strong>"modules"
+                                    </strong><span> </span>folder.
+                                    </p>
+
+
+                                    <div>
+                                        <figure>
+
+                                            <div>
+
+                                                <div>
+
+                                                    <img
+                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQEWHaJAhVlwpQ/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715162903158?e=1778716800&amp;v=beta&amp;t=OHnNxs2L_CbbAN3z17wlWIUxHJvTzf8CA8MCpZjqA6I"
+                                                            loading="lazy" alt="Article content">
+                                                </div>
+
+                                            </div>
+
+
+                                            <figcaption>
+                                                Non formal component diagram
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+
+
+                                    <p>
+                                        The main Rails application is the
+                                        <a target="_self" tabindex="0"
+                                           href="https://microservices.io/patterns/apigateway.html"
+                                           data-test-app-aware-link="">API gateway</a>
+                                        to connect modules together to
+                                        provide a single entry point for clients. The API gateway handles
+                                        requests in one of two ways. Some requests are simply proxied/routed to
+                                        the appropriate module, other requests by fanning out to multiple
+                                        modules. Each module can have its own dependencies and external
+                                        libraries, allowing for better code organization and maintainability.
+
+                                    </p>
+
+
+                                    <div>
+                                        <figure>
+
+                                            <div>
+
+                                                <div>
+
+                                                    <img
+                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQEqoS7CXr04Tg/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1715164065694?e=1778716800&amp;v=beta&amp;t=2O9L_p8InfCgt1wpfgJiqR1Fui3Jycm-FpeXnYwzKIQ"
+                                                            loading="lazy" alt="Article content">
+                                                </div>
+
+                                            </div>
+
+
+                                            <figcaption>
+                                                Project structure
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+
+
+                                    <p>
+                                        In our project, we had a module called <strong>"pe_service"
+                                    </strong> that required
+                                        complex rule evaluation based on client-provided data. Instead of
+                                        embedding this logic within the module itself, we decided to extract it
+                                        into a separate Ruby gem called <a target="_self"
+                                                                           tabindex="0"
+                                                                           href="https://github.com/useful-libs/json_logic_ruby"
+                                                                           data-test-app-aware-link="">json_logic_ruby</a>
+                                        . By encapsulating the module within a Rails engine, we could easily
+                                        manage its dependencies, including gems, without affecting the other
+                                        modules in the application. This level of modularity and separation of
+                                        concerns is a key benefit of the modular monolithic architecture, as it
+                                        allows each module to evolve independently while still being part of a
+                                        cohesive application.
+                                    </p>
+
+
+                                    <h3>
+                                        Conclusions
+                                    </h3>
+
+
+                                    <p>
+                                        During a year of restructuring a large monolithic app into RoR
+                                        engines, we achieved remarkably powerful and swift results. Instead of
+                                        creating one service, we built three separate engines in one RoR App.
+                                        These services exceeded expectations by delivering far more
+                                        functionality, and they operated at a faster pace due to the lack of
+                                        http communication in modules. This transformation surpassed the
+                                        expectations of our business stakeholders!<span> </span>
+                                    </p>
+
+
+                                    <p>
+                                        In conclusion, while designing the architecture of an application
+                                        the development team should focus extensively on the functional
+                                        requirements and quality attributes and should follow the guidelines
+                                        from reliable sources. Moreover, acknowledging the pros and cons of
+                                        every solution is key, and in this context, a modular monolithic app
+                                        seems to be the optimal solution due to its superior performance,
+                                        simplified interoperability, quicker MVP development, and easier support
+                                        and maintenance.<span> </span>
+                                    </p>
+
+
+                                    <p>
+                                        While designing a modular monolithic application in Ruby on
+                                        Rails, engines play an instrumental role. The relative ease of
+                                        extraction of these engines to create standalone services at a later
+                                        stage adds to the many advantages of this web development framework. It
+                                        allows for scalability, reusability, easy maintenance and better
+                                        organization of code, while also facilitating a possible transition to a
+                                        microservices architecture, as and when required.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
+    <style>
+        figure {
+            text-align: center;
+        }
+
+        figcaption {
+            text-align: center;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</Layout>

@@ -1,0 +1,37 @@
+---
+// src/pages/blog/index.astro
+
+import Layout from '../../layouts/Layout.astro';
+---
+
+<link rel="stylesheet" href="/plates.css"/>
+
+
+<Layout title="Blog">
+
+    <h1>Blog</h1>
+
+    <p class="intro">
+        Thoughts on architecture, Go, distributed systems, and real-world engineering decisions.
+    </p>
+
+    <div class="grid">
+
+        <a href="/blog/modular-monolith-rails" class="tile">
+            <div class="tile-inner">
+                <h3>Modular Monolith in Ruby on Rails</h3>
+                <p>Why you should not start with microservices</p>
+            </div>
+        </a>
+
+        <a href="/blog/efficient-concurrency" class="tile">
+            <div class="tile-inner">
+                <h3>Efficient concurrency</h3>
+                <p>Understanding concurrency through a real-world analogy</p>
+            </div>
+        </a>
+
+
+    </div>
+
+</Layout>
