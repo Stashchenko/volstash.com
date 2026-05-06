@@ -9,11 +9,13 @@ const repos = [
     {name: 'proxmoxbot', title: 'Telegram Proxmox Bot'},
     {name: 'matrix_simple', title: 'Amazfit Watchface in Matrix style'},
     {name: 'smartrack', title: 'SmartRack - Smart Home PC Rack'},
+    {name: 'home-assistant-voice-pe', title: 'HA Voice Assistant', branch: 'dev'},
 ];
 
-const branch = 'master';
+let branch = 'master';
 
 async function fetchReadme(repo) {
+    branch = repo.branch || branch;
     const url = `https://raw.githubusercontent.com/Stashchenko/${repo}/${branch}/README.md`;
 
     const res = await fetch(url);
