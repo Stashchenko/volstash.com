@@ -1,5 +1,5 @@
 ---
-title: "SmartRack is an ESP32-S3–based smart rack display and lighting controller"
+title: "SmartRack - Smart Home PC Rack"
 github: "https://github.com/Stashchenko/smartrack"
 ---
 

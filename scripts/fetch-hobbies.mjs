@@ -8,7 +8,7 @@ const repos = [
     {name: 'esp32_media_player', title: 'HA Media Player'},
     {name: 'proxmoxbot', title: 'Telegram Proxmox Bot'},
     {name: 'matrix_simple', title: 'Amazfit Watchface in Matrix style'},
-    {name: 'smartrack', title: 'SmartRack is an ESP32-S3–based smart rack display and lighting controller'}
+    {name: 'smartrack', title: 'SmartRack - Smart Home PC Rack'},
 ];
 
 const branch = 'master';
