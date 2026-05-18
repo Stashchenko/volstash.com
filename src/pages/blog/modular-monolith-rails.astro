@@ -9,10 +9,7 @@ import Layout from '../../layouts/Layout.astro';
                 <article>
                     <header aria-label="Article header">
                         <figure>
-                            <div>
-                                <img src="https://media.licdn.com/dms/image/v2/D4D12AQGA1fUR_aZwAQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1715159277207?e=1778716800&amp;v=beta&amp;t=xh-wUkZtct6UHOpfR9oumzVbj5Yw52gN9H25L2tyL5I"
-                                     loading="lazy">
-                            </div>
+                            <img src="/blog/ror_monolith/img.png" loading="lazy">
                         </figure>
                         <h1 dir="ltr">
                               <span data-scaffold-immersive-reader-title="">
@@ -72,9 +69,9 @@ import Layout from '../../layouts/Layout.astro';
                                     </p>
 
 
-                                    <h3>
+                                    <h2>
                                         What is software architecture?
-                                    </h3>
+                                    </h2>
 
 
                                     <p>
@@ -138,9 +135,9 @@ import Layout from '../../layouts/Layout.astro';
                                     </p>
 
 
-                                    <h3>
+                                    <h2>
                                         Modular Monolith Architecture
-                                    </h3>
+                                    </h2>
 
 
                                     <blockquote>
@@ -172,50 +169,27 @@ import Layout from '../../layouts/Layout.astro';
                                         microservices</strong><span> </span>can
                                         be too granular. Is there any middle ground?
                                     </p>
-
-
                                     <p>
-                                        <span> </span>- Yes, there certainly is a middle
+                                        - Yes, there certainly is a middle
                                         ground between a monolithic and microservices architectures, often
                                         referred to as a<span> </span><strong>
                                         "modular"</strong><span> </span>architecture.<span> </span>
                                     </p>
-
-
-                                    <p>
-
-                                        <br>
-                                    </p>
-
-
                                     <div>
                                         <figure>
-
-                                            <div>
-
-                                                <div>
-
-                                                    <img
-                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQGr_4X1l_TLMg/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1715162578140?e=1778716800&amp;v=beta&amp;t=di9iovh3nkX14_Pj8P392IJJUDS6TnETI36dJhWl6UI"
-                                                            loading="lazy" alt="Article content">
-                                                </div>
-
-                                            </div>
-
-
+                                            <img src="/blog/ror_monolith/img_1.png" loading="lazy"
+                                                 alt="Article content">
                                         </figure>
                                     </div>
-
-
                                     <p>
                                         The modular monolithic architecture is not a new concept. Many
-                                        people have already described and implemented it extensively.<span> </span><a
+                                        people have already described and implemented it extensively.<a
                                             target="_self"
                                             tabindex="0"
                                             href="https://medium.com/design-microservices-architecture-with-patterns/microservices-killer-modular-monolithic-architecture-ac83814f6862"
                                             data-test-app-aware-link="">[2]</a>. Kelsey
                                         Hightower, a renowned cloud computing expert, has advocated for the use
-                                        of serverless monoliths, stating that they<span> </span><strong>“offer a ton of
+                                        of serverless monoliths, stating that they <strong>“offer a ton of
                                         value”</strong>. According to Hightower, serverless
                                         monoliths allow developers to avoid the complexity and performance
                                         overhead of microservices for applications that don't require such
@@ -226,19 +200,8 @@ import Layout from '../../layouts/Layout.astro';
 
                                     <div>
                                         <figure>
-
-                                            <div>
-
-                                                <div>
-
-                                                    <img
-                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQElc3EasO1qMQ/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1715159637283?e=1778716800&amp;v=beta&amp;t=a0K2W2Re92_PSwAc4KNejUNID0n3R5W1tt9Uj6mHNh4"
-                                                            loading="lazy" alt="Article content">
-                                                </div>
-
-                                            </div>
-
-
+                                            <img src="/blog/ror_monolith/img_2.png" loading="lazy"
+                                                 alt="Article content">
                                             <figcaption>
                                                 https://twitter.com/kelseyhightower/status/1621184564956893189
                                             </figcaption>
@@ -335,16 +298,9 @@ import Layout from '../../layouts/Layout.astro';
                                     </p>
 
 
-                                    <p>
-                                        <strong>Ruby On Rails Modular Monolith</strong>
-                                    </p>
-
-
-                                    <p>
-
-                                        <br>
-                                    </p>
-
+                                    <h2>
+                                        Ruby On Rails Modular Monolith
+                                    </h2>
 
                                     <p>
                                         Ruby on Rails (RoR) is a robust web development framework favored
@@ -363,9 +319,9 @@ import Layout from '../../layouts/Layout.astro';
                                     <p>
                                         While RoR engines are a powerful approach, they are not the only
                                         option for modularizing Rails applications. One such approach is the use
-                                        of <span> </span><a target="_self"
-                                                            tabindex="0" href="https://github.com/Shopify/packwerk"
-                                                            data-test-app-aware-link="">Packwerk</a>, a
+                                        of <a target="_self"
+                                              tabindex="0" href="https://github.com/Shopify/packwerk"
+                                              data-test-app-aware-link="">Packwerk</a>, a
                                         Ruby gem developed by <span> </span><a tabindex="0"
                                                                                href="https://www.linkedin.com/company/shopify/"
                                                                                data-test-app-aware-link="">Shopify</a><span> </span>
@@ -429,26 +385,25 @@ import Layout from '../../layouts/Layout.astro';
                                     <p>
                                         However, it is crucial to design these engines with future
                                         extraction in mind. Developers should adhere to the principles
-                                        of<span> </span><strong>loose coupling and
+                                        of <strong>loose coupling and
                                         high cohesion</strong><a target="_self"
                                                                  tabindex="0"
                                                                  href="https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/"
-                                                                 data-test-app-aware-link=""><strong>[3]
-                                    </strong></a><span> </span>to ensure that
+                                                                 data-test-app-aware-link=""><strong>[3]</strong></a> to
+                                        ensure that
                                         these engines are both autonomous and interoperable. While the design of
                                         Ruby gems/RoR engines tends to be loosely coupled, the potential for
                                         adaptability is open-ended, as we often say in the Ruby
-                                        world:<span> </span><strong>"Everything is
-                                        possible".</strong>
+                                        world: <strong>"Everything is possible".</strong>
                                     </p>
 
 
                                     <p>
                                         There are many pitfalls to consider while building a Rails engine
-                                        app.<span> </span><em>(Maybe for another
+                                        app.<em>(Maybe for another
                                         article</em>). However, based on my experience, it’s
                                         entirely possible to leverage the inherent benefits of Rails modular
-                                        APP.<span> </span>
+                                        APP.
                                     </p>
 
 
@@ -463,19 +418,8 @@ import Layout from '../../layouts/Layout.astro';
 
                                     <div>
                                         <figure>
-
-                                            <div>
-
-                                                <div>
-
-                                                    <img
-                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQEWHaJAhVlwpQ/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715162903158?e=1778716800&amp;v=beta&amp;t=OHnNxs2L_CbbAN3z17wlWIUxHJvTzf8CA8MCpZjqA6I"
-                                                            loading="lazy" alt="Article content">
-                                                </div>
-
-                                            </div>
-
-
+                                            <img src="/blog/ror_monolith/img_3.png" loading="lazy"
+                                                 alt="Article content">
                                             <figcaption>
                                                 Non formal component diagram
                                             </figcaption>
@@ -500,19 +444,8 @@ import Layout from '../../layouts/Layout.astro';
 
                                     <div>
                                         <figure>
-
-                                            <div>
-
-                                                <div>
-
-                                                    <img
-                                                            src="https://media.licdn.com/dms/image/v2/D4D12AQEqoS7CXr04Tg/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1715164065694?e=1778716800&amp;v=beta&amp;t=2O9L_p8InfCgt1wpfgJiqR1Fui3Jycm-FpeXnYwzKIQ"
-                                                            loading="lazy" alt="Article content">
-                                                </div>
-
-                                            </div>
-
-
+                                            <img src="/blog/ror_monolith/img_4.png"
+                                                 loading="lazy" alt="Article content">
                                             <figcaption>
                                                 Project structure
                                             </figcaption>
@@ -528,8 +461,8 @@ import Layout from '../../layouts/Layout.astro';
                                         into a separate Ruby gem called <a target="_self"
                                                                            tabindex="0"
                                                                            href="https://github.com/useful-libs/json_logic_ruby"
-                                                                           data-test-app-aware-link="">json_logic_ruby</a>
-                                        . By encapsulating the module within a Rails engine, we could easily
+                                                                           data-test-app-aware-link="">json_logic_ruby</a>.
+                                        By encapsulating the module within a Rails engine, we could easily
                                         manage its dependencies, including gems, without affecting the other
                                         modules in the application. This level of modularity and separation of
                                         concerns is a key benefit of the modular monolithic architecture, as it
@@ -538,9 +471,9 @@ import Layout from '../../layouts/Layout.astro';
                                     </p>
 
 
-                                    <h3>
+                                    <h2>
                                         Conclusions
-                                    </h3>
+                                    </h2>
 
 
                                     <p>

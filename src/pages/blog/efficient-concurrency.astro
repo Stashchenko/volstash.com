@@ -8,7 +8,7 @@ import Layout from '../../layouts/Layout.astro';
             <header aria-label="Article header">
                 <figure>
                     <div>
-                        <img src="https://media.licdn.com/dms/image/v2/D4D12AQEjTdnWz-71cg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1715763457673?e=1778716800&amp;v=beta&amp;t=C1fgq-8OJzoW1115_k96n00DIY7iwXtypZyZJLeJsx8"
+                        <img src="/blog/concurrency_1.png"
                              loading="lazy">
                     </div>
                 </figure>
@@ -54,19 +54,7 @@ import Layout from '../../layouts/Layout.astro';
 
                                 <div>
                                     <figure>
-
-                                        <div>
-
-                                            <div>
-
-                                                <img
-                                                        src="https://media.licdn.com/dms/image/v2/D4D12AQHwnpujflbQ2A/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715694940851?e=1778716800&amp;v=beta&amp;t=XlbRG4iKG4NHW-qGtq1dlFVi6AGpUWBGarbkkZvP0iA"
-                                                        loading="lazy" alt="Article content">
-                                            </div>
-
-                                        </div>
-
-
+                                        <img src="/blog/concurrency_2.png" loading="lazy" alt="Article content">
                                     </figure>
                                 </div>
 
@@ -85,12 +73,12 @@ import Layout from '../../layouts/Layout.astro';
                                     customer’s tasks. By managing this list, the cashier can efficiently revisit and
                                     process these marked tasks once the bank confirmations become available. This system
                                     allows the cashier to handle multiple customers sequentially without losing
-                                    track.<span> </span>
+                                    track.
                                 </p>
 
 
                                 <h2>
-                                    Exploring Software Concurrency<span> </span>
+                                    Exploring Software Concurrency
                                 </h2>
 
 
@@ -101,24 +89,20 @@ import Layout from '../../layouts/Layout.astro';
 
 
                                 <p>
-                                    At this point, the cashier's role became analogous to a<span> </span><strong>
-                                    thread</strong><span> </span>in a software process:
+                                    At this point, the cashier's role became analogous to a <strong>
+                                    thread</strong> in a software process:
                                 </p>
 
 
                                 <p>
                                 <ul>
-                                    <li>Payment by card represents<span> </span><strong>
-                                        I/O-bound</strong><span> </span>tasks.
+                                    <li>Payment by card represents<strong>I/O-bound</strong> tasks.</li>
+                                    <li>Payment by cash represents <strong>CPU-bound tasks</strong>, since it involves
+                                        counting the amount and giving change.
                                     </li>
-                                    <li>Payment by cash represents<span> </span><strong>
-                                        CPU-bound tasks</strong>, since it involves counting the
-                                        amount and giving change.
-                                    </li>
-                                    <li>Our notebook of additional tasks represents<span> </span><strong>
-                                        "Green threads"<span> </span></strong>in<strong><span> </span>
-                                    </strong>modern
-                                        software languages.
+                                    <li>Our notebook of additional tasks represents <strong>"Green threads"</strong> in
+                                        <strong>
+                                        </strong> modern software languages.
                                     </li>
                                 </ul>
 
@@ -131,107 +115,87 @@ import Layout from '../../layouts/Layout.astro';
 
 
                                 <p>
-                                    This is related to the concurrency models used in many languages
-                                    like<span> </span><strong>Node.js</strong><span> </span>with Promises,<span> </span><strong>
-                                    Ruby</strong><span> </span>with Fibers,<span> </span><strong>
-                                    Golang</strong><span> </span>with Goroutines,<span> </span><strong>
-                                    Java</strong><span> </span>- Virtual Threads (Project Loom), etc.
+                                    This is related to the concurrency models used in many languages like <strong>Node.js</strong>
+                                    with Promises,<strong>
+                                    Ruby</strong> with Fibers, <strong>
+                                    Golang</strong> with Goroutines,<strong>
+                                    Java</strong> - Virtual Threads (Project Loom), etc.
                                 </p>
 
 
                                 <p>
                                     The key difference in handling concurrency between languages lies in their
                                     default behavior and the level of control given to developers. There are basically
-                                    two main models:<span> </span><strong>Preemptive
-                                </strong><span> </span>and<span> </span><strong>Cooperative
-                                </strong><span> </span>scheduling models, and there is also a mix, like
-                                    the "hybrid scheduling model" or "semi-preemptive scheduling".<span> </span>
+                                    two main models:<strong> Preemptive
+                                </strong> and <strong>Cooperative
+                                </strong> scheduling models, and there is also a mix, like
+                                    the "hybrid scheduling model" or "semi-preemptive scheduling".
                                 </p>
 
 
                                 <p>
-                                    <strong>Cooperative model:</strong><span> </span>threads voluntarily
+                                    <strong>Cooperative model:</strong> threads voluntarily
                                     yield control to the
                                     scheduler when they encounter a blocking operation or complete their current
-                                    work.<span> </span>
+                                    work.
                                 </p>
 
 
                                 <p>
-                                    <strong>Preemptive model:</strong><span> </span>the scheduler
+                                    <strong>Preemptive model:</strong> the scheduler
                                     (typically the operating system)
                                     handles blocking and switching between threads automatically, without the thread's
                                     involvement. The scheduler can interrupt and preempt a running thread at any time,
-                                    allowing other threads to execute.<span> </span>
+                                    allowing other threads to execute.
                                 </p>
 
 
                                 <p>
-                                    <strong>Node.js</strong><span> </span>automatically
+                                    <strong>Node.js</strong> automatically
                                     handles concurrency for I/O operations using its non-blocking I/O model and event
                                     loop, without requiring explicit concurrency constructs from developers. It does not
-                                    have built-in support for "green threads" or preemptive models. [<a
+                                    have built-in support for "green threads" or preemptive models.[<a
                                         target="_self" tabindex="0"
                                         href="https://www.geeksforgeeks.org/explain-the-concept-of-non-blocking-i-o-in-node/"
-                                        data-test-app-aware-link="">1</a>]<span> </span>
+                                        data-test-app-aware-link="">1</a>]
                                 </p>
 
 
                                 <p>
-                                    In<span> </span><strong>Go</strong>
-                                    , developers have explicit control over concurrency and must use goroutines
+                                    In <strong>Go</strong>, developers have explicit control over concurrency and must
+                                    use goroutines
                                     and channels to achieve concurrent execution. Yet Go's scheduler drives the
                                     mechanism of switching between goroutines automatically, providing a cooperative
-                                    scheduling model that feels like preemptive scheduling. [<a target="_self"
-                                                                                                tabindex="0"
-                                                                                                href="https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html"
-                                                                                                data-test-app-aware-link="">
-                                    2</a>]<span> </span>
+                                    scheduling model that feels like preemptive scheduling.[<a target="_self"
+                                                                                               tabindex="0"
+                                                                                               href="https://www.ardanlabs.com/blog/2018/08/scheduling-in-go-part2.html"
+                                                                                               data-test-app-aware-link="">2</a>]
                                 </p>
 
 
-                                <p>
-                                    In the similar way<span> </span><strong>Java’s
-                                </strong><span> </span>(Project Loom) Virtual threads
+                                <p>In the similar way <strong>Java’s</strong> (Project Loom) Virtual threads
                                     automatically yield control when they encounter a blocking operation, such as I/O or
-                                    synchronization primitives.&nbsp; [<a target="_self" tabindex="0"
-                                                                          href="https://blogs.oracle.com/javamagazine/post/java-virtual-threads"
-                                                                          data-test-app-aware-link="">3
-                                </a>]
+                                    synchronization primitives.[<a target="_self" tabindex="0"
+                                                                   href="https://blogs.oracle.com/javamagazine/post/java-virtual-threads"
+                                                                   data-test-app-aware-link="">3</a>]
                                 </p>
 
 
-                                <p>
-                                    Fibers in<span> </span><strong>Ruby
-                                </strong><span> </span>are cooperatively scheduled,
+                                <p>Fibers in <strong>Ruby</strong> are cooperatively scheduled,
                                     meaning that developers must manually yield control from one fiber to another using
-                                    the<span> </span><strong><em>Fiber.yield</em></strong><span> </span>method.&nbsp;
-                                    [<a target="_self" tabindex="0"
-                                        href="https://ruby-doc.org/core-3.1.2/Fiber.html"
-                                        data-test-app-aware-link="">
-                                    4</a>] Or use FiberScheduler to be similar as Go with auto
-                                    switching when reaches some blocking operation[<a target="_self" tabindex="0"
-                                                                                      href="https://docs.ruby-lang.org/en/3.2/Fiber/Scheduler.html"
-                                                                                      data-test-app-aware-link="">
-                                    5</a>]<span> </span>
+                                    the<strong><em>Fiber.yield</em></strong>method.[<a target="_self" tabindex="0"
+                                                                                       href="https://ruby-doc.org/core-3.1.2/Fiber.html"
+                                                                                       data-test-app-aware-link="">4</a>]
+                                    Or use FiberScheduler to be similar as Go with auto
+                                    switching when reaches some blocking operation.[<a target="_self" tabindex="0"
+                                                                                       href="https://docs.ruby-lang.org/en/3.2/Fiber/Scheduler.html"
+                                                                                       data-test-app-aware-link="">5</a>]
                                 </p>
 
 
                                 <div>
                                     <figure>
-
-                                        <div>
-
-                                            <div>
-
-                                                <img
-                                                        src="https://media.licdn.com/dms/image/v2/D4D12AQHQ2bzJRUiT9Q/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715694943730?e=1778716800&amp;v=beta&amp;t=EdqCECkPFMDsqAnNBwoXTm3Y4jnVh556xd8e-POIC38"
-                                                        loading="lazy" alt="Article content">
-                                            </div>
-
-                                        </div>
-
-
+                                        <img src="/blog/concurrency_3.png" loading="lazy" alt="Article content">
                                     </figure>
                                 </div>
 
@@ -260,7 +224,7 @@ import Layout from '../../layouts/Layout.astro';
                                     implement interesting solutions to achieve true parallel execution (out of the box).
                                     While different languages may have varying approaches and techniques for handling
                                     parallel execution, this story focuses on the basic principles of efficiently
-                                    handling tasks concurrently on a single execution unit (the cashier).<span> </span>
+                                    handling tasks concurrently on a single execution unit (the cashier).
                                 </p>
 
 
@@ -273,7 +237,7 @@ import Layout from '../../layouts/Layout.astro';
                                     The key idea behind all these lightweight concurrency mechanisms is to avoid
                                     blocking the main execution flow (the cashier). Instead, they allow switching to
                                     other tasks or execution contexts (other customers) while waiting for the I/O
-                                    operation to complete.<span> </span>
+                                    operation to complete.
                                 </p>
 
 
@@ -285,21 +249,21 @@ import Layout from '../../layouts/Layout.astro';
 
 
                                 <p>
-                                    <strong>Resource Efficiency:<span> </span></strong>
+                                    <strong>Resource Efficiency:</strong>
                                     Creating and managing OS-level threads can be resource-intensive, as each
                                     thread requires its own stack, memory, and kernel resources. In contrast,
                                     lightweight concurrency mechanisms like "green threads" are more lightweight and can
                                     be created and managed more efficiently, especially when dealing with a large number
-                                    of concurrent tasks or connections.<span> </span>
+                                    of concurrent tasks or connections.
                                 </p>
 
 
                                 <p>
-                                    <strong>Context switching:</strong><span> </span>Switching between
+                                    <strong>Context switching:</strong>Switching between
                                     OS-level threads involves
                                     costly context switching by the operating system kernel, which can introduce
                                     significant overhead, especially when dealing with a large number of
-                                    threads.<span> </span>
+                                    threads.
                                 </p>
 
 
@@ -307,7 +271,7 @@ import Layout from '../../layouts/Layout.astro';
                                     <strong>Simplicity</strong>: Lightweight concurrency constructs
                                     can provide a simpler programming model compared to traditional thread-based
                                     concurrency, especially for handling I/O-bound tasks or implementing event-driven
-                                    architectures.<span> </span>
+                                    architectures.
                                 </p>
 
 
@@ -316,12 +280,12 @@ import Layout from '../../layouts/Layout.astro';
                                     significant amount of time waiting for network, disk, etc., lightweight concurrency
                                     mechanisms are often implemented at the language or runtime level, making them more
                                     portable across different OS and hardware architectures, as opposed to relying on
-                                    low-level threading primitives provided by the operating system.<span> </span>
+                                    low-level threading primitives provided by the operating system.
                                 </p>
 
 
                                 <h2>
-                                    Concurrency != Parallelism<span> </span>
+                                    Concurrency != Parallelism
                                 </h2>
 
 
@@ -332,9 +296,7 @@ import Layout from '../../layouts/Layout.astro';
 
                                             <div>
 
-                                                <img
-                                                        src="https://media.licdn.com/dms/image/v2/D4D12AQHro5o89Tuf1w/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1715785574170?e=1778716800&amp;v=beta&amp;t=7lLFTCgaZs3_tY1j8Y1LeHKHPP-HYp0ahlHib58KZQ4"
-                                                        loading="lazy" alt="Article content">
+                                                <img src="/blog/concurrency_4.png" loading="lazy" alt="Article content">
                                             </div>
 
                                         </div>
@@ -403,7 +365,7 @@ import Layout from '../../layouts/Layout.astro';
                                     The developer's role is to understand the nature of the tasks (I/O-bound or
                                     CPU-bound) and their parallelizability, and choose a middle ground that avoids
                                     having too few resources, which can lead to underutilization, or too many resources,
-                                    which can introduce unnecessary overhead.<span> </span>
+                                    which can introduce unnecessary overhead.
                                 </p>
 
 
