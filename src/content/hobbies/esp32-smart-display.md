@@ -26,21 +26,30 @@ Inspired by https://github.com/1achy/ESPHOME-esp32-2432s028r-LCD
 - Displays **media title**, **play/pause**, **next/previous**, **volume**, and **volume controls**.
 - Updates **play/pause icon** dynamically.
 
-### 🔔 Notifications
-- Pop-up notifications from Home Assistant.
-- Notifications can include **text** and **sound**.
-- RTTTL melodies play on notification:
-    - Predefined options: `nokia_pop`, `notify_high`, `two_short`, `long`, `siren`, `scale_up`, `star_wars`, `mission_imp`, `mario`.
-- Tap on notification popup to **stop sound** and dismiss.
+### 🌡️ Climate Control
+
+- Dual Monitoring: Dedicated UI block linking to climate.ac_irblaster_samsung_aqv to render local ambient temperature alongside target values.
+- Granular Adjustments: Built-in hardware buttons execute steps to increment or decrement the targeted HVAC temperature point by 1° increments.
+- Mode Selection: Integrates an LVGL dropdown menu component enabling users to swap live operating profiles directly between Off, Cool, Heat, and Dry.
+
+### 🔋 Battery Status & Monitoring
+- Analog Tracking: Monitors battery cell potential continuously using an ADC layout mapped to GPIO35.
+- Tuned Mapping Math: Employs a segmented interpolation formula mapped across specific discharge milestones to accurately depict true capacity profiles.
+- Visual Arc Indicator: Leverages an LVGL arc graphic that shifts colors dynamically from Green (≥ 80%), Blue (≥ 50%), Yellow (≥ 15%), down to Red (< 15%).
+
+### 🔔 Smart Notifications
+- Urgent Overlays: Pushes immediate, full-width modal popups to the front of the UI when text values change inside Home Assistant.
+- Audio Intercepts: Couples visibility with automated acoustic prompts driven by multi-melody chime logic.
+- Dismissal Interactivity: Tapping anywhere inside the notification block instantly stops audio playback and hides the popup frame.
 
 ### 🌬 Air Quality Index
 - Displays **AQI** from Home Assistant sensor `sensor.air_quality_index_lviv`.
 - Shows numerical AQI on the display.
 
-### ⏱ Screen Management
-- Backlight automatically turns **off** after a configurable timeout.
-- Tap screen to **wake display**.
-- Configurable brightness.
+### ⏱ Screen Management & Deep Sleep
+- Power Saving Timeouts: Automatically drops the backlight low when interactions cease for a customized timeframe.
+- Tap-to-Unlock Interface: Locks the standard panels behind a 100% dark touch block layer to filter accidental brushes when sleeping.
+- Deep Sleep Schedule: Utilizes time-of-day automation rules to power off display buses and suspend the processor for 30 minutes during designated rest periods.
 
 ### ⚡ RTTTL Sound
 - Plays **melody sounds** on notification events.
@@ -62,11 +71,15 @@ Inspired by https://github.com/1achy/ESPHOME-esp32-2432s028r-LCD
     - `weather.forecast_home`
     - `media_player.kitchen`
     - `sensor.air_quality_index_krakow_air_quality_index`
+    - `climate.ac_irblaster_samsung_aqv`
 5. Configure select box for **melody notifications** in ESPHome UI or Home Assistant.
 
 ___
 ## Notes
 
+- ⚠️ Deep Sleep Wake Alert: By default, entering deep sleep shuts down the screen and processor cores completely to minimize battery drain. 
+The device will remain unreactive to screen presses during this window and will wake automatically every 30 minutes to check schedules.
+- 🎵 Instant Quiet: Clicking directly on a visible notification popup layer interrupts the active RTTTL thread immediately.
 - **RTTTL playback** stops when tapping notification popup.
 - **Screen timeout** is configurable via ESPHome number component.
 - Uses **Home Assistant API** to fetch live data.
