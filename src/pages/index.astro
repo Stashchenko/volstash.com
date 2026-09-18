@@ -15,7 +15,9 @@ import MainLayout from "../layouts/Layout.astro";
 
 	<section id="about">
 		<h2>About Me</h2>
-		<p>I have over 15 years of development experience, encompassing project creation, process establishment, project
+		<p>I have over <span id="exp-stable">15 years</span> and
+			<span id="exp-ticker" style="font-variant-numeric: tabular-nums;">00:00:00 hours</span>
+			of development experience, encompassing project creation, process establishment, project
 			estimation, and team leadership. As a Principal Engineer, I've played key roles in architecture solutions
 			and
 			have experience in creating projects from the ground up. I also have experience splitting huge monoliths
@@ -47,7 +49,7 @@ import MainLayout from "../layouts/Layout.astro";
 
 	<section id="skills">
 		<h2>Skills</h2>
-		<ul class="skills">
+		<ul class="list">
 			<li>Go (Golang)</li>
 			<li>Java / Core Java / Java EE</li>
 			<li>Ruby / Ruby on Rails / Sinatra</li>
@@ -84,7 +86,7 @@ import MainLayout from "../layouts/Layout.astro";
 
 	<section id="experience">
 		<h2>Experience / Projects</h2>
-		<ul class="experience">
+		<ul class="list">
 			<li>Architected and developed microservices for high-load projects.</li>
 			<li>Split large monoliths into independent, isolated projects.</li>
 			<li>Led multiple engineering teams, mentoring and guiding junior developers.</li>
@@ -93,9 +95,19 @@ import MainLayout from "../layouts/Layout.astro";
 		</ul>
 	</section>
 
+	<section id="domains">
+		<h2>Domain Knowledge & Industries</h2>
+		<ul class="list">
+			<li><strong>FinTech & Payments:</strong> Architecting secure, high-load financial systems and integrations, including enterprise experience with global payment networks.</li>
+			<li><strong>Oil & Gas (Energy):</strong> Developing robust enterprise software solutions, data management, and operational platforms for industry leaders.</li>
+			<li><strong>Insurance:</strong> Building and optimizing platforms for the insurance sector, focusing on system reliability, data processing, and legacy modernization.</li>
+			<li><strong>Enterprise B2B / SaaS:</strong> Architecting scalable, multi-tenant solutions and leading complex monolith-to-microservices migrations across various business sectors.</li>
+		</ul>
+	</section>
+
 	<section id="cloud">
 		<h2>Cloud & Tools</h2>
-		<ul class="cloud">
+		<ul class="list">
 			<li>AWS / GCP / Azure / Heroku</li>
 			<li>Docker, Kubernetes</li>
 			<li>CI/CD (GitHub Actions, GitLab CI, Jenkins)</li>
@@ -104,3 +116,45 @@ import MainLayout from "../layouts/Layout.astro";
 	</section>
 
 </MainLayout>
+
+<script>
+	// Yes, this is the actual date when I started my career in software development at EPAM ;)
+	const dateStart = new Date("2011-09-11T09:00:00");
+	const stableSpan = document.getElementById("exp-stable");
+	const tickerSpan = document.getElementById("exp-ticker");
+
+	if (stableSpan && tickerSpan) {
+		const now = new Date();
+		let years = now.getFullYear() - dateStart.getFullYear();
+		let months = now.getMonth() - dateStart.getMonth();
+		let days = now.getDate() - dateStart.getDate();
+
+		if (days < 0) {
+			const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+			days += prevMonth.getDate();
+			months--;
+		}
+		if (months < 0) {
+			months += 12;
+			years--;
+		}
+
+		const formatUnit = (value, unit) => `${value} ${value === 1 ? unit : unit + 's'}`;
+
+		// Set stable text using textContent
+		stableSpan.textContent = `${formatUnit(years, 'year')}, ${formatUnit(months, 'month')}, ${formatUnit(days, 'day')}`;
+
+		function updateTicker() {
+			const tickNow = new Date();
+
+			const hrs = String(tickNow.getHours()).padStart(2, '0');
+			const mins = String(tickNow.getMinutes()).padStart(2, '0');
+			const secs = String(tickNow.getSeconds()).padStart(2, '0');
+
+			tickerSpan.textContent = ` ${hrs}:${mins}:${secs} hours`;
+		}
+
+		updateTicker();
+		setInterval(updateTicker, 1000);
+	}
+</script>
