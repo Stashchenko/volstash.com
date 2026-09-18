@@ -1,0 +1,431 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="The AI-Powered Engineer">
+    <article>
+        <header>
+            <figure>
+                <div>
+                    <img src="/blog/ai_powered/aipowered_intro.png" alt="The AI-Powered Engineer Cover Image"
+                         loading="lazy">
+                </div>
+            </figure>
+
+            <h1 dir="ltr">
+                <span> The AI-Powered Engineer</span>
+            </h1>
+        </header>
+        <div>
+            <div>
+                <div>
+                    <time>
+                        September 16, 2026
+                    </time>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div dir="ltr">
+
+                        <div>
+                            <p>
+                                Welcome to the next era. If you read the headlines, you might think the software
+                                engineering profession is on its deathbed, ready to be entirely handed over to AI.
+                                As a software engineer who works with these tools every day, I’m here to tell you:
+                                <strong>take a deep breath. </strong>AI is not here to replace us
+                                <em>(at least for the near future)</em>. It is here <strong>to supercharge
+                                us</strong>.
+                                Based on the reality of day-to-day development, here is why the human engineer is
+                                still
+                                the most critical part of the stack - and why learning to work effectively with AI
+                                will become an essential engineering skill.
+                            </p>
+
+                            <h3>
+                                The "End of Juniors" is a Myth
+                            </h3>
+
+                            <div>
+                                <figure>
+                                    <img src="/blog/ai_powered/juniors.png" loading="lazy" alt="Junior">
+                                </figure>
+                            </div>
+
+                            <p>
+                                There is a massive fear that companies will stop hiring junior developers. While the
+                                sheer
+                                volume of junior hires might adjust, the hiring pipeline won't disappear.
+                            </p>
+
+                            <p>
+                                <strong>The Legacy Pipeline</strong>: Someone has to support, maintain, and
+                                eventually
+                                architect the complex infrastructures of tomorrow.
+                            </p>
+
+                            <p>
+                                <strong>The Knowledge Gap</strong>: If you don't train juniors today, you won't have
+                                the senior engineers required to untangle massive, legacy AI-generated codebases in
+                                five years.
+                                We still need humans in the loop, learning the ropes.
+                            </p>
+
+                            <p>
+                                <strong>"It Works" vs. "It Works Very Well"</strong>
+                            </p>
+
+                            <p>
+                                Even the best AI models today excel at writing code that just works. But software
+                                engineering is rarely about getting a script to run; it's about building optimized,
+                                highly performant, and scalable systems. Under the guidance of a skillful engineer,
+                                AI accelerates development tremendously. Left to its own devices, it might build a
+                                functional but deeply unoptimized mess. The magic happens when human expertise meets
+                                machine speed.
+                            </p>
+
+                            <p>
+                                <strong>What You Ask Is What You Get</strong>
+                            </p>
+
+                            <div>
+                                <figure>
+                                    <img src="/blog/ai_powered/makeitwork.png" loading="lazy" alt="Make it work">
+                                </figure>
+                            </div>
+
+                            <p>
+                                Let's look at a standard software development lifecycle: it starts with an idea,
+                                requirements,
+                                moves to design and documentation, then planning, implementation, and finally
+                                testing. Today,
+                                we can use AI at every single one of these steps. But this is exactly where the trap
+                                lies -
+                                many people leave too much to the AI without <strong>verifying what is actually
+                                received</strong>.
+                            </p>
+
+                            <p>
+                                If a Product Owner provides a perfectly defined, meticulously described task, the AI
+                                can
+                                generate a solid feature. But let's be real about our day-to-day practice:
+                            </p>
+
+                            <blockquote>
+                                In practice, many tickets arrive with incomplete requirements, have generic
+                                descriptions
+                                ("Just do something useful and working").
+                            </blockquote>
+
+                            <p>
+                                When we skip human verification, the whole lifecycle suffers. You end up with a mess
+                                of
+                                unclear documentation, missing architectural gaps, and highly generic tickets
+                                <strong>about everything and nothing.</strong>
+                            </p>
+
+                            <p>
+                                If you pass an AI-generated, vague ticket into an AI-coding assistant, you know
+                                exactly
+                                what happens: an endless loop of iterations, zero clarity, and a questionable final
+                                product.
+                                &nbsp;AI can write brilliant code - if the input is brilliant. Human translation of
+                                business
+                                needs is still irreplaceable.
+                            </p>
+
+                            <p>
+                                <strong>AI Doesn't Understand Responsibility</strong>
+                            </p>
+
+                            <p>
+                                You can delegate practically any coding or non-coding task to an AI, but you
+                                <strong>can’t delegate the responsibility.</strong> When a critical bug hits
+                                production,
+                                or a database goes down at 5 AM, someone has to answer for it. You cannot blame the
+                                machine;
+                                it merely executed orders. Accountability will always fall on a person because
+                                humans carry
+                                the risk. Most organizations need humans to own decisions and their consequences.
+                            </p>
+
+                            <p>
+                                <strong>From Weeks to Days</strong>
+                            </p>
+
+                            <p>
+                                Recently, I had to design a solution for one of my projects. As usual, the first
+                                part
+                                of the work was architecture and documentation. I needed to produce items like:
+                                &nbsp;High-Level
+                                Design (HLD), Low-Level Design (LLD), Technical explanations, Architectural
+                                decisions,
+                                Implementation details, etc.
+                            </p>
+
+                            <p>
+                                I used AI to help generate all of this, but it wasn't a magic button where I entered
+                                one
+                                prompt and received perfect documents. There were many iterations. I had to explain
+                                the context,
+                                correct its assumptions, change the architecture when it missed the mark. Ask for
+                                alternatives,
+                                remove things that didn't make sense <em>(maybe ~40% of the work)</em>, add missing
+                                details.
+                                Thoroughly review everything - and repeat.
+                            </p>
+
+                            <p>
+                                Even with all of that back-and-forth, it was much faster than writing everything
+                                from
+                                scratch myself. And that's exactly how AI should be used.
+                            </p>
+
+                            <p>
+                                <strong>The implementation:</strong> The standard expectation was to hand the design
+                                over to
+                                the PO, spend weeks with a team splitting it into tickets, estimating story points,
+                                and deciding
+                                on the implementation order.
+                            </p>
+
+                            <p>
+                                Instead, I decided to experiment: I created <strong>just one story linked to all the
+                                documents</strong>
+                                and used AI to implement the solution.
+                            </p>
+
+                            <p>
+                                <strong>The Complexity</strong>: It wasn't the simplest feature, but not the most
+                                complex either.
+                            </p>
+
+                            <p>
+                                <strong>The Result:</strong> The entire solution was done in a couple of days. Based
+                                on my
+                                experience with comparable features, I estimate that this approach was roughly 3-5x
+                                faster.
+                            </p>
+
+                            <p>
+                                <strong>Quality Factor:</strong> This is probably the most important part. I didn't
+                                simply
+                                accept whatever the AI generated. There were iterations, mistakes, and things that
+                                had to be
+                                redesigned. The code was reviewed, tests were verified, and best practices were
+                                enforced
+                                through our normal PR review process.
+                            </p>
+
+                            <p>
+                                <em>- Did it work perfectly on the first try? - of course it didn't.</em> But after
+                                a few
+                                iterations under my supervision, we had a clean, maintainable solution ready for
+                                production.
+                            </p>
+
+                            <h3>
+                                One Person, More Capabilities
+                            </h3>
+
+                            <p>
+                                I have a close friend who is an indie developer. Ask him what he does and you won't
+                                get a
+                                one-line answer. He's the only engineer behind a brand with several consumer
+                                products: desktop
+                                customization tools, wallpapers, browser games. Everything technical goes through
+                                him. And
+                                <strong>"everything technical" covers a lot.</strong>
+                            </p>
+
+                            <p>
+                                Each product is its own codebase, with its own users and its own problems. Around
+                                them there's
+                                infrastructure, websites, SEO, payments, analytics, support tooling. And on top of
+                                that, a bunch
+                                of other projects that have nothing to do with the brand at all.
+                            </p>
+
+                            <p>
+                                Building was never the blocker for him — <strong>time was.</strong> Frontend,
+                                backend, DevOps,
+                                across several products, plus keeping everything already shipped alive, is more work
+                                than one
+                                person's week can hold. So things waited. Or he had to find another engineer to
+                                help.
+                            </p>
+
+                            <p>
+                                Now, with AI, that has changed. From what I see, he's doing much more of it himself
+                                and doing
+                                it well. AI takes on implementation, debugging, exploring unfamiliar territory,
+                                documentation,
+                                and the long tail of small tasks that used to need another pair of hands.
+                            </p>
+
+                            <p>
+                                It doesn't replace him. Someone still has to understand the system, decide what to
+                                build and how,
+                                judge whether the generated code is any good, and own it when it breaks in
+                                production. But the
+                                engineering effort it takes to move an idea forward has dropped. For a one-engineer
+                                company,
+                                <strong>that's the difference between "someday" and "this week."</strong>
+                            </p>
+
+                            <p>
+                                <strong>One person can now accomplish what previously might have required several
+                                    people or at
+                                    least additional engineering support.</strong>
+                            </p>
+
+                            <h2>
+                                Wait... This Article Was Built the Same Way
+                            </h2>
+
+                            <div>
+                                <figure>
+                                    <img src="/blog/ai_powered/aiask.png" loading="lazy" alt="Help of AI">
+                                </figure>
+                            </div>
+
+                            <p>
+                                And there is a funny part about writing this article.&nbsp; Even now, while you're
+                                reading it,
+                                it took me a few iterations to get the right phrasing and structure. I had to
+                                clarify my points,
+                                correct assumptions, and refine the flow. <em>(You might even see the typos in my
+                                first attempt
+                                above, and yeah, it’s just before the Future)</em>
+                            </p>
+
+                            <p>
+                                I didn't just throw raw thoughts into an AI and publish whatever came back. AI
+                                pointed out
+                                unclear sections, generated images and helped structure my thoughts.
+                            </p>
+
+                            <p>
+                                However, the final article isn't just "AI-generated text." It is the result of my
+                                <strong>personal</strong> <strong>experiences</strong>, my
+                                <strong>decisions</strong>, and
+                                careful <strong>manual review.</strong> AI didn't replace me. It helped me turn my
+                                raw
+                                ideas into a well-structured, readable article. And that is the core point of this
+                                <strong>article</strong>.
+                            </p>
+
+                            <p>
+                                <strong>The Future Belongs to Engineers Who Adapt</strong>
+                            </p>
+
+                            <div>
+                                <figure>
+                                    <img src="/blog/ai_powered/future.png" loading="lazy" alt="Future">
+                                </figure>
+                            </div>
+
+                            <p>
+                                Let’s be realistic: because AI allows us to do more with fewer resources, companies
+                                may
+                                need fewer developers to deliver the same amount of software. Team sizes might
+                                shrink,
+                                and expectations will certainly change. To stay competitive and valuable, developers
+                                will
+                                need to learn <strong>how to work effectively with AI</strong>.
+                            </p>
+
+                            <p>
+                                For at least the next couple of years, people will remain at the center of software
+                                development -
+                                supported by increasingly powerful AI tools. We shouldn't fear this shift. Every
+                                developer
+                                should treat AI like any other engineering tool:
+                            </p>
+
+                            <ul>
+                                <li>Learn it.</li>
+                                <li>Experiment with it.</li>
+                                <li>Understand its limitations.</li>
+                                <li>Learn how to provide rich context and review its output.</li>
+                                <li>Learn when to trust it - and, more importantly, <strong>when NOT to trust
+                                    it.</strong></li>
+                            </ul>
+
+                            <p>
+                                The future is cooperation between the human who makes the decisions and the AI that
+                                helps
+                                implement them. Developers who know what to ask, how to provide context, and how to
+                                guide
+                                and verify the machine's output will have a significant advantage in an AI-assisted
+                                development environment.
+                            </p>
+
+                            <p>
+                                And this isn't just my experience. While discussing a draft of this article with the
+                                same
+                                friend, he sent me a link to a livestream where <a target="_self" tabindex="0"
+                                                                                   href="http://www.youtube.com/watch?v=zcLPGC-tvgk"
+                                                                                   data-test-app-aware-link=""><strong>Matt
+                                Pocock interviewed Uncle Bob</strong></a>
+                                on software fundamentals in the age of AI. I hadn't seen it before. Watching it
+                                genuinely
+                                surprised me - so many of the ideas they discussed were very close to the
+                                conclusions
+                                I'd already reached from my own daily work.
+                            </p>
+
+                            <p>
+                                Another interesting example is <strong>Mitchell Hashimoto</strong> - co-founder of
+                                HashiCorp,
+                                co-creator of Terraform, and the developer behind Ghostty. He is a heavy user of AI
+                                in his
+                                development workflow. In his essay <a target="_self" tabindex="0"
+                                                                      href="https://mitchellh.com/writing/my-ai-adoption-journey"
+                                                                      data-test-app-aware-link=""><strong>My AI
+                                Adoption Journey</strong></a>,
+                                he describes how AI has become deeply integrated into his workflow while engineering
+                                fundamentals,
+                                architectural thinking, and reviewing the result remain essential.
+                            </p>
+
+                            <p>
+                                Whether you look at industry legends like Uncle Bob or experienced builders like
+                                Mitchell,
+                                the takeaway is clear: AI changes how we build software, but it doesn't remove the
+                                need for
+                                engineers who understand how it should be built.
+                            </p>
+
+                            <p>
+                                Remember: <strong>Garbage In → Garbage Out</strong>.
+                            </p>
+
+                            <p>
+                                With AI, this principle has never been more important. <strong>And I think that's
+                                the real future of software engineering.</strong>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <style>
+        h1 {
+            text-align: center !important;
+        }
+
+        figure {
+            text-align: center;
+        }
+
+        figcaption {
+            text-align: center;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</Layout>
