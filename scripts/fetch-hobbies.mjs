@@ -10,6 +10,8 @@ const repos = [
     {name: 'matrix_simple', title: 'Amazfit Watchface in Matrix style'},
     {name: 'smartrack', title: 'SmartRack - Smart Home PC Rack'},
     {name: 'home-assistant-voice-pe', title: 'HA Voice Assistant', branch: 'dev'},
+    {name: 'hassio-addons', title: 'Home Assistant Apps'},
+    {name: 'immich-home-assistant', title: 'Immich Home Assistant Integration'},
 ];
 
 let branch = 'master';
