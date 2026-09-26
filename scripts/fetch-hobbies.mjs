@@ -12,6 +12,8 @@ const repos = [
     {name: 'home-assistant-voice-pe', title: 'HA Voice Assistant', branch: 'dev'},
     {name: 'hassio-addons', title: 'Home Assistant Apps'},
     {name: 'immich-home-assistant', title: 'Immich Home Assistant Integration'},
+    {name: 'chatgpt_proxy', title: 'ChatGPT Proxy for Hermes Agent AI'},
+
 ];
 
 let branch = 'master';

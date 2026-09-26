@@ -7,7 +7,7 @@ github: "https://github.com/Stashchenko/hassio-addons"
 
 [![GitHub License](https://img.shields.io/github/license/stashchenko/hassio-addons?style=flat-square)](https://raw.githubusercontent.com/Stashchenko/hassio-addons/master/LICENSE)
 
-Welcome to **Stashchenko's Home Assistant Apps Repository**. This repository provides custom, high-performance add-ons for Home Assistant, focused on multi-room synchronized audio, custom audio piping, and smart media streaming.
+Welcome to **Stashchenko's Home Assistant Apps Repository**. This repository provides custom, high-performance add-ons for Home Assistant, focused on network infrastructure, multi-room synchronized audio, and smart device integration.
 
 ---
 
@@ -35,10 +35,23 @@ Click the **Add Repository** button below to automatically add this repository t
 | Add-on | Description | Supported Architectures |
 | :--- | :--- | :--- |
 | **[Snapcast Server](https://github.com/Stashchenko/hassio-addons/tree/main/snapcast-server)** | Synchronized multi-room audio server with built-in **Spotify Connect (Librespot)** and **Snapweb UI**. | ![aarch64][aarch64-shield] ![amd64][amd64-shield] |
+| **[Hass.io Access Point](https://github.com/Stashchenko/hassio-addons/tree/main/hassio-access-point)** | Create a dedicated Wi-Fi access point on Home Assistant with built-in DHCP, client routing, and an Ingress status dashboard. | ![aarch64][aarch64-shield] ![amd64][amd64-shield] |
 
 ---
 
-## 🎵 Add-on Highlights
+## 🛠️ Add-on Highlights
+
+### [Hass.io Access Point](https://github.com/Stashchenko/hassio-addons/tree/main/hassio-access-point)
+
+A robust Wi-Fi access point add-on designed to connect wireless IoT devices and clients directly to your Home Assistant hardware. *(Originally based on the [Hassio-Access-Point](https://github.com/ex-ml/Hassio-Access-Point) project by Matt Longman, enhanced with a custom status web server and Ingress support)*.
+
+* **Built-in Status Dashboard & Ingress:** Real-time monitoring of connected wireless clients, active IP leases, MAC addresses, and hostnames directly inside the Home Assistant UI via Ingress.
+* **Advanced Networking & DHCP:** Integrated `hostapd` and `dnsmasq` stack with optional internet sharing (`MASQUERADE`), custom DNS routing, and mDNS reflection (`Avahi`) for seamless local discovery.
+* **Granular Security Controls:** Built-in support for MAC address filtering (`allow_mac_addresses` / `deny_mac_addresses`) and flexible custom configuration overrides.
+
+---
+
+<img src="https://raw.githubusercontent.com/Stashchenko/hassio-addons/master/images/hass-ap/web.png" alt="WebUI" width="100%">
 
 ### [Snapcast Server with Spotify Connect Support](https://github.com/Stashchenko/hassio-addons/tree/main/snapcast-server)
 
