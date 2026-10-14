@@ -32,9 +32,9 @@ Click the **Add Repository** button below to automatically add this repository t
 
 ## 📦 Available Add-ons
 
-| Add-on | Description | Supported Architectures |
-| :--- | :--- | :--- |
-| **[Snapcast Server](https://github.com/Stashchenko/hassio-addons/tree/main/snapcast-server)** | Synchronized multi-room audio server with built-in **Spotify Connect (Librespot)** and **Snapweb UI**. | ![aarch64][aarch64-shield] ![amd64][amd64-shield] |
+| Add-on | Description                                                                                                                  | Supported Architectures |
+| :--- |:-----------------------------------------------------------------------------------------------------------------------------| :--- |
+| **[Snapcast Server](https://github.com/Stashchenko/hassio-addons/tree/main/snapcast-server)** | Synchronized multi-room audio server and **Snapweb UI**.                                                                     | ![aarch64][aarch64-shield] ![amd64][amd64-shield] |
 | **[Hass.io Access Point](https://github.com/Stashchenko/hassio-addons/tree/main/hassio-access-point)** | Create a dedicated Wi-Fi access point on Home Assistant with built-in DHCP, client routing, and an Ingress status dashboard. | ![aarch64][aarch64-shield] ![amd64][amd64-shield] |
 
 ---
@@ -53,11 +53,10 @@ A robust Wi-Fi access point add-on designed to connect wireless IoT devices and 
 
 <img src="https://raw.githubusercontent.com/Stashchenko/hassio-addons/master/images/hass-ap/web.png" alt="WebUI" width="100%">
 
-### [Snapcast Server with Spotify Connect Support](https://github.com/Stashchenko/hassio-addons/tree/main/snapcast-server)
+### [Snapcast Server](https://github.com/Stashchenko/hassio-addons/tree/main/snapcast-server)
 
 A feature-packed Snapserver setup designed for seamless Home Assistant and Music Assistant integration.
 
-* **Spotify Connect Built-in:** Includes `librespot` out-of-the-box so your Snapcast server acts as a direct Spotify player.
 * **Integrated Web Dashboard:** Includes the built-in [Snapweb](https://github.com/badaix/snapweb) web client directly accessible from your browser or Home Assistant Ingress/Sidebar.
 
 <img src="https://raw.githubusercontent.com/Stashchenko/hassio-addons/master/images/snapweb.png" alt="Snapweb Dashboard" width="100%">
